@@ -1,0 +1,10 @@
+<div class="animate__animated animate__fadeIn animate__faster">
+    <h3>Monstruos</h3>
+    <hr>
+</div>
+
+<div *ngIf="monsters.length > 0" class="row">
+    <div class="col">
+        <app-monster-tabla [monsters]="monsters"></app-monster-tabla>
+    </div>
+</div>
