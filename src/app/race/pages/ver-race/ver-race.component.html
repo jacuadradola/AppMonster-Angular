@@ -1,0 +1,81 @@
+
+
+<div *ngIf="!race; else divMonster"
+    class="alert alert-info">
+    Espere por favor...
+</div>
+
+<ng-template #divMonster>
+
+  <button [routerLink]="['/races']" class="btn btn-warning "> Atrás </button>
+
+  <div class="row">
+      <div class="col-12">
+          <h1 class="text-uppercase">{{ race.name }} </h1>
+          <strong>Speed </strong> {{ race.speed}} - <strong>Size </strong> {{ race.size }}
+      </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col p-2">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <strong>Alignment</strong> {{ race.alignment}}
+        </li>
+        <li class="list-group-item">
+            <strong>Age</strong> {{ race.age}}
+        </li>
+        <li class="list-group-item">
+            <strong>Size</strong> {{ race.size }}
+        </li>
+        <li class="list-group-item">
+          <strong>Size description</strong> {{ race.size_description}}
+        </li>
+        <li class="list-group-item">
+          <strong>Language desc</strong> {{ race.language_desc}}
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-3">
+      <h3>Ability bonuses</h3>
+      <span *ngIf="race.ability_bonuses.length==0" class="badge bg-primary">None</span>
+      <div *ngFor="let pro of race.ability_bonuses" >
+        <span class="badge bg-primary">{{ pro.ability_score.name }}</span>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <h3>Language</h3>
+      <span *ngIf="race.languages.length==0" class="badge bg-primary">None</span>
+      <div *ngFor="let pro of race.languages">
+        <span class="badge bg-primary">{{ pro.name }}</span>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <h3>Traits</h3>
+      <span *ngIf="race.traits.length==0" class="badge bg-primary">None</span>
+      <div *ngFor="let pro of race.traits">
+        <span class="badge bg-primary">{{ pro.name }}</span>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <h3>Starting proficiencies</h3>
+      <span *ngIf="race.starting_proficiencies.length==0" class="badge bg-primary">None</span>
+      <div *ngFor="let pro of race.starting_proficiencies">
+        <span class="badge bg-primary">{{ pro.name }}</span>
+      </div>
+    </div>
+
+  </div>
+
+</ng-template>
+
+

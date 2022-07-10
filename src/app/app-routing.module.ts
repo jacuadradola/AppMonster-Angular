@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { MonstersComponent } from './monster/pages/monsters/monsters.component';
+import { RacesComponent } from './race/pages/races/races.component';
 import { VerMonsterComponent } from './monster/pages/ver-monster/ver-monster.component';
+import { VerRaceComponent } from './race/pages/ver-race/ver-race.component';
 
 
 const routes: Routes = [
@@ -20,11 +22,11 @@ const routes: Routes = [
     },
     {
         path: 'races',
-        component: MonstersComponent
+        component: RacesComponent
     },
     {
-        path: 'races/:id',
-        component: VerMonsterComponent
+        path: 'races/:index',
+        component: VerRaceComponent
     },
     {
         path: '**',

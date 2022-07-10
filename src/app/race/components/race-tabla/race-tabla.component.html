@@ -1,0 +1,21 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th> # </th>
+            <th> Index </th>
+            <th> Name </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let race of races; let i = index"
+            class="animate__animated animate__fadeIn animate__faster">
+            <td> {{ i + 1 }} </td>
+            <td> {{ race.index }}</td>
+            <td> {{ race.name }}</td>
+            <td>
+                <a [routerLink]="['/races', race.index]">Ver...</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

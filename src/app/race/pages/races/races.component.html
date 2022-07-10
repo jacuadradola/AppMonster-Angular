@@ -1,0 +1,10 @@
+<div class="animate__animated animate__fadeIn animate__faster">
+    <h3>Races</h3>
+    <hr>
+</div>
+
+<div *ngIf="races.length > 0" class="row">
+    <div class="col">
+        <app-race-tabla [races]="races"></app-race-tabla>
+    </div>
+</div>

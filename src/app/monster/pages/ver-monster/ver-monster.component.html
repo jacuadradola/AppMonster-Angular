@@ -8,85 +8,92 @@
 <ng-template #divMonster>
   <button [routerLink]="['/monsters']" class="btn btn-warning"> Atrás </button>
 
-    <div class="row">
-        <div class="col-12">
-            <h1 class="text-uppercase">{{ monster.name }}</h1>
-        </div>
+  <div class="row">
+      <div class="col-12">
+          <h1 class="text-uppercase">{{ monster.name }}</h1>
+      </div>
+  </div>
+
+  <div class="row">
+    <div class="col-4 p-2">
+      <ul class="list-group">
+          <li class="list-group-item">
+              <strong>Size </strong> {{ monster.size}}
+          </li>
+          <li class="list-group-item">
+              <strong>Type </strong> {{ monster.type }}
+          </li>
+          <li class="list-group-item">
+              <strong>Alignment</strong> {{ monster.alignment}}
+          </li>
+          <li class="list-group-item">
+            <strong>Armor class </strong> {{ monster.armor_class}}
+        </li>
+        <li class="list-group-item">
+            <strong>Hit points </strong> {{ monster.hit_points }}
+        </li>
+      </ul>
     </div>
 
-    <div class="row">
-
-      <div class="col-4 p-2">
-        <ul class="list-group">
-            <li class="list-group-item">
-                <strong>Size </strong> {{ monster.size}}
-            </li>
-            <li class="list-group-item">
-                <strong>Type </strong> {{ monster.type }}
-            </li>
-            <li class="list-group-item">
-                <strong>Alignment</strong> {{ monster.alignment}}
-            </li>
-            <li class="list-group-item">
-              <strong>Armor class </strong> {{ monster.armor_class}}
+    <div class="col-4 p-2">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <strong>Hit dice</strong> {{ monster.hit_dice}}
+      </li>
+          <li class="list-group-item">
+              <strong>Speed walk </strong> {{ monster.speed.walk}}
           </li>
           <li class="list-group-item">
-              <strong>Hit points </strong> {{ monster.hit_points }}
+              <strong>Speed swin </strong> {{ monster.speed.swim }}
           </li>
-        </ul>
-      </div>
-
-      <div class="col-4 p-2">
-        <ul class="list-group">
           <li class="list-group-item">
-            <strong>Hit dice</strong> {{ monster.hit_dice}}
+              <strong>strength</strong> {{ monster.strength}}
+          </li>
+          <li class="list-group-item">
+            <strong>Dexterity</strong> {{ monster.dexterity}}
         </li>
-            <li class="list-group-item">
-                <strong>Speed walk </strong> {{ monster.speed.walk}}
-            </li>
-            <li class="list-group-item">
-                <strong>Speed swin </strong> {{ monster.speed.swim }}
-            </li>
-            <li class="list-group-item">
-                <strong>strength</strong> {{ monster.strength}}
-            </li>
-            <li class="list-group-item">
-              <strong>Dexterity</strong> {{ monster.dexterity}}
+      </ul>
+    </div>
+
+    <div class="col-4 p-2">
+      <ul class="list-group">
+
+          <li class="list-group-item">
+              <strong>Constitution </strong> {{ monster.constitution }}
           </li>
-        </ul>
+          <li class="list-group-item">
+              <strong>Intelligence</strong> {{ monster.intelligence}}
+          </li>
+          <li class="list-group-item">
+            <strong>Wisdom</strong> {{ monster.wisdom}}
+          </li>
+          <li class="list-group-item">
+              <strong>Charisma </strong> {{ monster.charisma }}
+          </li>
+          <li class="list-group-item">
+              <strong>Xp</strong> {{ monster.xp}}
+          </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+    <h3>Special abilities</h3>
+    <span *ngIf="monster.special_abilities.length==0" class="badge bg-primary">None</span>
+      <div *ngFor="let pro of monster.special_abilities" >
+        <span *ngIf="!pro" class="badge bg-primary">Ninguno</span>
+        <span class="badge bg-primary">{{ pro.name }}</span>
       </div>
+    </div>
 
-      <div class="col-4 p-2">
-        <ul class="list-group">
-
-            <li class="list-group-item">
-                <strong>Constitution </strong> {{ monster.constitution }}
-            </li>
-            <li class="list-group-item">
-                <strong>Intelligence</strong> {{ monster.intelligence}}
-            </li>
-            <li class="list-group-item">
-              <strong>Wisdom</strong> {{ monster.wisdom}}
-            </li>
-            <li class="list-group-item">
-                <strong>Charisma </strong> {{ monster.charisma }}
-            </li>
-            <li class="list-group-item">
-                <strong>Xp</strong> {{ monster.xp}}
-            </li>
-        </ul>
-      </div>
-
-      <h3>Special abilities</h3>
-      <div class="col-6" *ngFor="let pro of monster.special_abilities" >
-        <span class="badge bg-primary mr-1">{{ pro.name }}</span>
-      </div>
-
+    <div class="col-6">
       <h3>Proficiencies</h3>
-      <div class="col" *ngFor="let pro of monster.proficiencies">
-        <span class="badge bg-primary mr-1">{{ pro.proficiency.name }}</span>
+      <span *ngIf="monster.proficiencies.length==0" class="badge bg-primary">None</span>
+      <div *ngFor="let pro of monster.proficiencies">
+        <span class="badge bg-primary">{{ pro.proficiency.name }}</span>
       </div>
-
+    </div>
   </div>
 
 </ng-template>
